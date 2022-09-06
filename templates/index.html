@@ -12,7 +12,7 @@
 <body>
   <div class="container">
       {% comment %} TODO: 4. /index 페이지에는 로그인 한 유저 이름을 출력해야 합니다. ex) hello, 홍길동 {% endcomment %}
-    <p>hello, {{user.username}}</p>
+    <p>Hello, {{user.username}}</p>
 
     {% if request.user.is_authenticated %}
     <p><a href="{% url 'user_list' %}">유저리스트</a></p>
