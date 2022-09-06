@@ -43,7 +43,7 @@ def login_view(request):
             raw_password=form.cleaned_data.get("password")
             user=authenticate(username=username, password=raw_password)
             if user is not None:
-                msg="로그인 성공"
+                msg="로그인"
                 login(request, user)
                 return HttpResponseRedirect("/")
             else:
@@ -72,7 +72,7 @@ def user_list_view(request):
         users=User.objects.all().order_by("-id")
 
     # TODO: 9. user 목록은 pagination이 되게 해주세요
-    paginator=Paginator(users, 10)
+    paginator=Paginator(users, 20)
     users=paginator.get_page(page)
 
     return render(request, "users.html", {"users": users})
